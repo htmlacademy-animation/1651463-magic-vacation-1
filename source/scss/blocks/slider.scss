@@ -96,6 +96,9 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  opacity: 0;
+  transform: translateX(10%);
+  transition: transform $duration-extra-long ease-in, opacity $duration-extra-long ease-in;
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
@@ -273,6 +276,25 @@
       width: 0.4rem;
       height: 0.4rem;
       background-color: $c-light;
+    }
+  }
+}
+
+.screen--story.active {
+  .swiper-slide-active {
+    .slider__item-text {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .swiper-slide-next {
+    .slider__item-text {
+      @media (min-width: $tablet) {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.2s;
+      }
     }
   }
 }
