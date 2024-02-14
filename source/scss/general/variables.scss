@@ -19,8 +19,12 @@ $retina-dpi: 144dpi;
 $retina-dppx: 1.5dppx;
 
 $index: 1.38871;
+$screen-cover-index: 100;
 
 $duration-short: 0.2s;
 $duration-medium: 0.3s;
 $duration-long: 0.4s;
 $duration-extra-long: 0.5s;
+
+$ease-in-out-back: cubic-bezier(0.6, -0.25, 0.34, 1.51);
+$ease-out-end: cubic-bezier(0, 0.8, 0.96, 0.89);

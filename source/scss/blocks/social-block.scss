@@ -45,7 +45,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
-    transition: all $duration-medium ease-in-out 0.4s;
+    transition: all $duration-medium, transform $duration-medium $ease-in-out-back 0.4s;
   }
 
   svg {
