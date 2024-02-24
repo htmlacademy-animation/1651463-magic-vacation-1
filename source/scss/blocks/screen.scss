@@ -315,11 +315,6 @@
   }
 }
 
-.page-content {
-  display: grid;
-  height: 100vh;
-}
-
 .screen--prizes {
   .screen-cover {
     position: absolute;
@@ -332,7 +327,7 @@
 
   .screen--story.screen--hidden ~ & {
     .screen-cover {
-      animation: fadeInUpCover $duration-medium ease;
+      animation: sladeInUp $duration-medium ease;
     }
   }
 }

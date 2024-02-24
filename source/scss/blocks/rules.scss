@@ -145,6 +145,30 @@
   }
 
   &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    width: 4.5rem;
+    height: 4.5rem;
+    background-color: $c-purple;
+    transform: scale(0);
+
+    @media (max-width: $tablet) and (orientation: portrait) {
+      top: 1rem;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    @media (max-width: $mobile) and (orientation: landscape) {
+      top: 0.6rem;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+
+  &::after {
     content: counter(li);
     counter-increment: li;
     position: absolute;
@@ -155,23 +179,17 @@
     font-family: $font-alt;
     font-weight: 400;
     font-size: 2.4rem;
-    background-color: $c-purple;
-    border-radius: 50%;
     line-height: 5rem;
     text-align: center;
+    color: $c-light;
+    opacity: 0;
 
     @media (max-width: $tablet) and (orientation: portrait) {
-      top: 1rem;
-      width: 2.5rem;
-      height: 2.5rem;
       line-height: 3rem;
       font-size: 1.4rem;
     }
 
     @media (max-width: $mobile) and (orientation: landscape) {
-      top: 0.6rem;
-      width: 2.5rem;
-      height: 2.5rem;
       line-height: 3rem;
       font-size: 1.4rem;
     }
@@ -179,6 +197,8 @@
 
   p {
     margin: 0;
+    opacity: 0;
+    transform: translateX(100%);
 
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);
@@ -190,6 +210,10 @@
   position: absolute;
   bottom: 6rem;
   right: 5.6rem;
+  display: block;
+  color: transparent;
+  transform: scaleX(0);
+  transform-origin: 100%;
 
   @media (min-width: $stop-scaling) {
     bottom: 60px;
@@ -209,5 +233,67 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     bottom: 2rem;
     right: 1.5rem;
+  }
+}
+
+.screen--rules.active {
+  .rules__item {
+    &::before {
+      animation: zoomIn 0.3s cubic-bezier(0, 0, 0, 1.3) forwards;
+    }
+
+    &::after {
+      animation: fadeIn 0.3s ease-in-out 0.1s forwards;
+    }
+
+    p {
+      animation: fadeInRight 0.3s ease-in-out 0.1s forwards;
+    }
+
+    &:nth-child(2) {
+      &::before {
+        animation-delay: 0.2s;
+      }
+
+      &::after {
+        animation-delay: 0.3s;
+      }
+
+      p {
+        animation-delay: 0.3s;
+      }
+    }
+
+    &:nth-child(3) {
+      &::before {
+        animation-delay: 0.4s;
+      }
+
+      &::after {
+        animation-delay: 0.5s;
+      }
+
+      p {
+        animation-delay: 0.5s;
+      }
+    }
+
+    &:nth-child(4) {
+      &::before {
+        animation-delay: 0.8s;
+      }
+
+      &::after {
+        animation-delay: 0.9s;
+      }
+
+      p {
+        animation-delay: 0.9s;
+      }
+    }
+  }
+
+  .rules__link {
+    animation: stretchRight 0.3s 1s forwards, fadeIn 1ms 1.06s forwards, textAppeared 0.2s 1.2s forwards;
   }
 }
