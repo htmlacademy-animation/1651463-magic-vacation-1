@@ -71,3 +71,84 @@
     color: $c-dark;
   }
 }
+
+@keyframes prize__flamingo-show {
+  from {
+    opacity: 0;
+    transform: translateY(100%) rotate(-50deg);
+  }
+
+  to {
+    opacity: 0.8;
+    transform: translateY(-10%) rotate(-5deg);
+  }
+}
+
+@keyframes prize__flamingo-fly {
+  from,
+  to {
+    transform: translateY(-10%) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes prize__show-leaf-1 {
+  0% {
+    opacity: 0;
+    transform: rotate(-25deg);
+  }
+
+  20% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+
+  40% {
+    transform: rotate(-15deg);
+  }
+
+  60% {
+    transform: rotate(0deg);
+  }
+
+  80% {
+    transform: rotate(-5deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
+
+@keyframes prize__show-leaf-2 {
+  0% {
+    opacity: 0;
+    transform: rotate(25deg);
+  }
+
+  20% {
+    opacity: 1;
+    transform: rotate(0);
+  }
+
+  40% {
+    transform: rotate(15deg);
+  }
+
+  60% {
+    transform: rotate(0);
+  }
+
+  80% {
+    transform: rotate(5deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}

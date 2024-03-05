@@ -31,11 +31,12 @@
 }
 
 .form__field {
+  display: block;
   flex: none;
   margin-right: 3rem;
   padding: 0 5.6rem;
   height: 6rem;
-  width: 0;
+  width: calc(100% - 21rem);
   text-transform: uppercase;
   font: inherit;
   font-size: 2.4rem;
@@ -44,7 +45,6 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
-  transition: all $duration-extra-long ease-in;
 
   &:focus {
     border: 1px solid $c-purple;
@@ -54,7 +54,7 @@
     margin-right: 30px;
     padding: 0 56px;
     height: 60px;
-    width: 0;
+    width: calc(100% - 210px);
     font-size: 24px;
     border-radius: 30px;
   }
@@ -62,19 +62,19 @@
   @media (orientation: portrait) {
     margin-right: 1rem;
     padding: 0 2.5rem;
-    width: 0;
+    width: calc(100% - 5rem);
     height: 4rem;
     font-size: 1.6rem;
   }
 
   @media (max-width: $tablet) and (orientation: landscape) {
-    width: 0;
+    width: calc(100% - 9rem);
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
     margin-right: 1rem;
     padding: 0 2.5rem;
-    width: 0;
+    width: calc(100% - 5rem);
     height: 4rem;
     font-size: 1.6rem;
   }
@@ -133,28 +133,6 @@
 
     @media (min-width: $stop-scaling) {
       width: calc(100% - 310px);
-    }
-
-    @media (orientation: portrait) {
-      width: calc(100% - 5rem);
-    }
-
-    @media (max-width: $tablet) and (orientation: landscape) {
-      width: calc(100% - 9rem);
-    }
-
-    @media (max-width: $mobile) and (orientation: landscape) {
-      width: calc(100% - 5rem);
-    }
-  }
-}
-
-.screen--game.active {
-  .form__field {
-    width: calc(100% - 21rem);
-
-    @media (min-width: $stop-scaling) {
-      width: calc(100% - 210px);
     }
 
     @media (orientation: portrait) {
