@@ -1,0 +1,18 @@
+.accent-typography {
+  &__word {
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+
+    span {
+      display: inline-block;
+      line-height: 120%;
+      will-change: transform;
+      transform: translate3d(0, 2em, 0);
+    }
+  }
+}
+
+.accent-typography--active .accent-typography__word > span {
+  transform: translate3d(0, 0, 0);
+}

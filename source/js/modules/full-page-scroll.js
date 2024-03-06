@@ -1,4 +1,5 @@
 import throttle from 'lodash/throttle';
+import PageSwitchHandler from './page-switch-handler';
 
 export default class FullPageScroll {
   constructor() {
@@ -12,6 +13,7 @@ export default class FullPageScroll {
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
+    this.pageSwitchHandler = new PageSwitchHandler();
   }
 
   init() {
@@ -57,8 +59,10 @@ export default class FullPageScroll {
       screen.classList.remove(`active`);
     });
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
+    this.pageSwitchHandler.resetScheme();
     setTimeout(() => {
       this.screenElements[this.activeScreen].classList.add(`active`);
+      this.pageSwitchHandler.setColorScheme(this.screenElements[this.activeScreen].id);
     }, 100);
   }
 
