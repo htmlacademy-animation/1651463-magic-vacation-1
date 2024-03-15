@@ -31,13 +31,13 @@ export default class AccentTypographyBuild {
       return;
     }
 
-    const text = this._element.textContent.trim().split(/[\s]+/).filter((latter) => latter !== ``);
+    const text = this._element.textContent.trim().split(/[\s]+/).filter((letter) => letter !== ``);
     const {length} = text;
 
     const content = text.reduce((fragmentParent, word, wordIndex) => {
       const wordElement = Array.from(word)
-        .reduce((fragment, latter) => {
-          fragment.appendChild(this.createElement(latter, wordIndex));
+        .reduce((fragment, letter) => {
+          fragment.appendChild(this.createElement(letter, wordIndex));
 
           return fragment;
         }, document.createDocumentFragment());

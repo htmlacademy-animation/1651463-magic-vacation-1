@@ -58,7 +58,6 @@ export default class PageSwitchHandler {
     }
   }
 
-
   resetScheme() {
     for (const destroySchema in this.scriptDestroySchema) {
       if (this.scriptDestroySchema.hasOwnProperty(destroySchema)) {

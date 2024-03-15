@@ -285,7 +285,7 @@
 
     &:hover,
     &:focus {
-      color: $c-purple;
+      color: var(--c-main-accent);
       outline: none;
 
       &::after {
@@ -294,7 +294,7 @@
         width: 100%;
         right: unset;
         left: 0;
-        background-color: $c-purple;
+        background-color: var(--c-main-accent);
       }
     }
   }
@@ -328,9 +328,12 @@
     opacity: 1;
   }
 
-  .page-header__menu a.active::after {
-    opacity: 1;
-    width: 100%;
+  .page-header__menu a.active {
+    &::after {
+      opacity: 1;
+      width: 100%;
+      transition-delay: 0s;
+    }
   }
 
   .page-header__toggler {
