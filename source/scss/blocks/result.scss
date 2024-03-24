@@ -115,6 +115,7 @@
   font-size: 2.4rem;
   line-height: 1.2;
   color: $c-light;
+  transform-origin: center;
 
   @media (min-width: $stop-scaling) {
     margin: auto auto 10px;
@@ -269,95 +270,109 @@
   }
 }
 
-.screen--result .result--prize {
-  .prize-image {
-    top: 45%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 820px;
-    height: 480px;
-
-    img {
-      display: block;
-      position: absolute;
-      object-fit: cover;
-      height: auto;
-    }
-
-    &__suitcase {
-      top: -10%;
-      left: 14%;
-      width: 60%;
-      transform-origin: bottom center;
-    }
-
-    &__flamingo {
-      top: 18%;
-      left: 10%;
-      width: 45%;
-      transform-origin: bottom right;
-    }
-
-    &__leaf-1 {
-      top: -12%;
+#result2 {
+  .result--prize {
+    .prize-image {
+      top: 45%;
       left: 50%;
-      width: 45%;
-      transform-origin: bottom left;
+      transform: translateX(-50%);
+      width: 820px;
+      height: 480px;
+
+      img {
+        display: block;
+        position: absolute;
+        object-fit: cover;
+        height: auto;
+      }
+
+      &__suitcase {
+        top: -10%;
+        left: 14%;
+        width: 60%;
+        transform-origin: bottom center;
+      }
+
+      &__flamingo {
+        top: 18%;
+        left: 10%;
+        width: 45%;
+        transform-origin: bottom right;
+      }
+
+      &__leaf-1 {
+        top: -12%;
+        left: 50%;
+        width: 45%;
+        transform-origin: bottom left;
+      }
+
+      &__leaf-2 {
+        top: 25%;
+        left: -5%;
+        width: 45%;
+        transform-origin: top right;
+      }
+
+      &__leaf-green {
+        top: 30%;
+        left: 48%;
+        width: 55%;
+        transform-origin: bottom left;
+      }
+
+      @media (max-width: $mobile) {
+        width: 100vw;
+        height: 60vw;
+      }
     }
 
-    &__leaf-2 {
-      top: 25%;
-      left: -5%;
-      width: 45%;
-      transform-origin: top right;
+    .form__field {
+      transform-origin: 100%;
     }
-
-    &__leaf-green {
-      top: 30%;
-      left: 48%;
-      width: 55%;
-      transform-origin: bottom left;
-    }
-
-    @media (max-width: $mobile) {
-      width: 100vw;
-      height: 60vw;
-    }
-  }
-
-  .form__field {
-    transform-origin: 100%;
   }
 }
 
-.screen--result.screen--show .result--prize {
-  .prize-image {
-    &__suitcase {
-      animation: zoomIn $duration-extra-long both;
+#result2.screen--show {
+  .result--prize {
+    .prize-image {
+      &__suitcase {
+        animation: zoomIn $duration-extra-long both;
+      }
+
+      &__flamingo {
+        animation: prize__flamingo-show $duration-extra-long both, prize__flamingo-fly 3s alternate $duration-extra-long infinite;
+      }
+
+      &__leaf-1 {
+        animation: prize__show-leaf-1 1s ease $duration-medium both;
+      }
+
+      &__leaf-2 {
+        animation: prize__show-leaf-2 1s ease-out $duration-medium both;
+      }
+
+      &__leaf-green {
+        animation: prize__show-leaf-1 1s ease-out $duration-long both;
+      }
     }
 
-    &__flamingo {
-      animation: prize__flamingo-show $duration-extra-long both, prize__flamingo-fly 3s alternate $duration-extra-long infinite;
+    .form__button {
+      animation: fadeIn $duration-long 0.3s both, textAppeared $duration-long 0.5s both;
     }
 
-    &__leaf-1 {
-      animation: prize__show-leaf-1 1s ease $duration-medium both;
-    }
-
-    &__leaf-2 {
-      animation: prize__show-leaf-2 1s ease-out $duration-medium both;
-    }
-
-    &__leaf-green {
-      animation: prize__show-leaf-1 1s ease-out $duration-long both;
+    .form__field {
+      animation: stretchRight $duration-extra-long 0.5s both, fadeIn 0.1s 0.1s both;
     }
   }
+}
 
-  .form__button {
-    animation: fadeIn $duration-long 0.3s both, textAppeared $duration-long 0.5s both;
-  }
+#result3.screen--show {
+  .result__button {
+    animation: fadeIn $duration-medium 0.5s both;
 
-  .form__field {
-    animation: stretchRight $duration-extra-long 0.5s both, fadeIn 0.1s 0.1s both;
+    span {
+      animation: rollInRight $duration-medium 0.5s both;
+    }
   }
 }
