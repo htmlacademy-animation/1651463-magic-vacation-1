@@ -5,6 +5,25 @@ export default () => {
   let sliderContainer = document.getElementById(`story`);
   sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
 
+  const ThemeName = {
+    0: `light-purple`,
+    2: `blue`,
+    4: `light-blue`,
+    6: `purple`,
+  };
+
+  const setColorTheme = (themes, activeIndex) => {
+    for (const [key, value] of Object.entries(themes)) {
+      if (Number(key) === activeIndex) {
+        document.documentElement.setAttribute(`data-menu-color`, `${value}`);
+      }
+    }
+  };
+
+  const removeColorTheme = () => {
+    document.documentElement.removeAttribute(`data-menu-color`);
+  };
+
   const setSlider = function () {
     if (((window.innerWidth / window.innerHeight) < 1) || window.innerWidth < 769) {
       storySlider = new Swiper(`.js-slider`, {
@@ -16,6 +35,9 @@ export default () => {
           enabled: true
         },
         on: {
+          init: () => {
+            setColorTheme(ThemeName, 0);
+          },
           slideChange: () => {
             if (storySlider.activeIndex === 0 || storySlider.activeIndex === 1) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
@@ -50,6 +72,9 @@ export default () => {
           enabled: true
         },
         on: {
+          init: () => {
+            setColorTheme(ThemeName, 0);
+          },
           slideChange: () => {
             if (storySlider.activeIndex === 0) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg")`;
@@ -60,6 +85,7 @@ export default () => {
             } else if (storySlider.activeIndex === 6) {
               sliderContainer.style.backgroundImage = `url("img/slide4.jpg")`;
             }
+            setColorTheme(ThemeName, storySlider.activeIndex);
           },
           resize: () => {
             storySlider.update();
@@ -79,4 +105,12 @@ export default () => {
   });
 
   setSlider();
+
+  document.body.addEventListener(`screenChanged`, (evt) => {
+    if (evt.detail.screenName !== `story`) {
+      removeColorTheme();
+    } else {
+      setColorTheme(ThemeName, storySlider.activeIndex);
+    }
+  });
 };

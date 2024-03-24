@@ -1,5 +1,7 @@
 :root {
   font-size: 0.69445vw;
+  --c-main: #5e478a;
+  --c-main-accent: #9f80e0;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     font-size: 3.125vw;
@@ -16,6 +18,21 @@
       font-size: 2vw;
     }
   }
+}
+
+:root[data-menu-color="light-purple"] {
+  --c-main: #9f80e0;
+  --c-main-accent: #5e478a;
+}
+
+:root[data-menu-color="blue"] {
+  --c-main: #4275e9;
+  --c-main-accent: #a2cffc;
+}
+
+:root[data-menu-color="light-blue"] {
+  --c-main: #a2cffc;
+  --c-main-accent: #4275e9;
 }
 
 html {

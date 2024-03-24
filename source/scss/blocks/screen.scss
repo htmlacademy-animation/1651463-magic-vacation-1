@@ -45,17 +45,46 @@
   bottom: 0;
   left: 0;
   right: 0;
+  overflow: hidden;
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
   opacity: 0;
   transform: translateY(100%);
-  transition: all $duration-medium $ease-out-end 0.2s;
+  transition: all $duration-medium $ease-out-end;
+  transition-delay: 0.2s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: $c-light;
+    z-index: -1;
+  }
+
+  @media (min-width: $tablet) {
+    .screen.active & {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
+    border-radius: 0 3.6rem 0 0;
     width: 3.5rem;
     height: 3.5rem;
-    border-radius: 0 3.6rem 0 0;
+    opacity: 1;
+    transform: translate(0);
+    background-color: transparent;
+    transition-delay: 0s;
+
+    &::before {
+      display: block;
+    }
 
     &.screen__footer--full {
       width: 100%;
@@ -64,20 +93,47 @@
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
+    border-radius: 0 3.6rem 0 0;
     width: 3.5rem;
     height: 3.5rem;
-    border-radius: 0 3.6rem 0 0;
 
     &.screen__footer--full {
       width: 100%;
       height: 16rem;
     }
   }
-}
+  // position: absolute;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
+  // color: $c-dark;
+  // background-color: $c-light;
+  // z-index: 1;
+  // opacity: 0;
+  // transform: translateY(100%);
+  // transition: all $duration-medium $ease-out-end 0.2s;
 
-.screen.active .screen__footer {
-  opacity: 1;
-  transform: translateY(0);
+  // @media (max-width: $tablet) and (orientation: portrait) {
+  //   width: 3.5rem;
+  //   height: 3.5rem;
+  //   border-radius: 0 3.6rem 0 0;
+
+  //   &.screen__footer--full {
+  //     width: 100%;
+  //     height: 18rem;
+  //   }
+  // }
+
+  // @media (max-width: $mobile) and (orientation: landscape) {
+  //   width: 3.5rem;
+  //   height: 3.5rem;
+  //   border-radius: 0 3.6rem 0 0;
+
+  //   &.screen__footer--full {
+  //     width: 100%;
+  //     height: 16rem;
+  //   }
+  // }
 }
 
 .screen__footer-wrapper {
@@ -87,15 +143,8 @@
     opacity: 0;
 
     .screen__footer--full & {
-      opacity: 1;
-    }
-  }
-
-  @media (max-width: $mobile) and (orientation: landscape) {
-    opacity: 0;
-
-    .screen__footer--full & {
-      opacity: 1;
+      animation: fadeIn $duration-medium ease-in-out both;
+      animation-delay: 0.3s;
     }
   }
 }
@@ -110,6 +159,7 @@
   height: 4rem;
   color: $c-dark;
   z-index: 1;
+  transition: opacity $duration-medium;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: block;
@@ -149,6 +199,7 @@
   height: 4rem;
   color: $c-dark;
   z-index: 1;
+  transition: opacity $duration-medium;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: block;
@@ -327,7 +378,13 @@
 
   .screen--story.screen--hidden ~ & {
     .screen-cover {
-      animation: sladeInUp $duration-medium ease;
+      animation: slideInUp $duration-medium ease;
+    }
+  }
+
+  &.screen--hidden {
+    .screen__footer-note {
+      animation: fadeOut $duration-medium ease-in-out forwards;
     }
   }
 }
@@ -380,4 +437,50 @@
 
 .screen--rules {
   background-color: $c-dark;
+
+  &.active {
+    .rules__item {
+      &::before {
+        animation: zoomIn $duration-medium cubic-bezier(0, 0, 0, 1.3) forwards;
+      }
+
+      &::after {
+        animation: fadeIn $duration-medium ease-in-out 0.1s forwards;
+      }
+
+      p {
+        animation: fadeInRight $duration-medium ease-in-out 0.1s forwards;
+      }
+
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+          &::before {
+            animation-delay: (250ms * $i);
+          }
+
+          &::after {
+            animation-delay: (300ms * $i);
+          }
+
+          p {
+            animation-delay: (350ms * $i);
+          }
+        }
+      }
+    }
+
+    .rules__link {
+      animation: textAppeared $duration-short 1.2s forwards;
+
+      &::before {
+        animation: stretchRight $duration-medium 1s forwards, fadeIn 1ms 1.06s forwards;
+      }
+    }
+  }
+
+  .screen--prizes.screen--hidden ~ & {
+    .disclaimer ul {
+      animation: fadeIn $duration-medium ease-in-out both;
+    }
+  }
 }
