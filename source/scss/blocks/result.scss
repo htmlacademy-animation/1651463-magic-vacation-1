@@ -367,12 +367,23 @@
   }
 }
 
-#result3.screen--show {
+#result3 {
   .result__button {
-    animation: fadeIn $duration-medium 0.5s both;
+    opacity: 0;
 
     span {
-      animation: rollInRight $duration-medium 0.5s both;
+      transform: translateX(24px) rotate(90deg);
+    }
+  }
+
+  &.screen--show {
+    .result__button {
+      animation: fadeIn $duration-medium 0.5s both;
+
+      span {
+        animation: rollInRight $duration-medium 0.5s both;
+      }
     }
   }
 }
+

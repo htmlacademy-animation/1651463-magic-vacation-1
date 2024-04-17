@@ -166,7 +166,7 @@
 @keyframes story__btn--prev {
   from {
     opacity: 0;
-    transform: translateX(-100%) rotate(-90deg);
+    transform: translateX(-24px) rotate(-90deg);
   }
 
   to {
@@ -178,11 +178,22 @@
 @keyframes story__btn--next {
   from {
     opacity: 0;
-    transform: translateX(100%) rotate(90deg);
+    transform: translateX(24px) rotate(90deg);
   }
 
   to {
     opacity: 1;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+
+@keyframes rollInRight {
+  from {
+    transform: translateX(24px) rotate(90deg);
+  }
+
+  to {
     transform: translateX(0) rotate(0);
   }
 }
