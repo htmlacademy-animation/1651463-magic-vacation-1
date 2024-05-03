@@ -33,7 +33,7 @@
 @keyframes fadeInRight {
   from {
     opacity: 0;
-    transform: translateX(15px);
+    transform: translateX(0.93rem);
   }
 
   to {
@@ -52,6 +52,16 @@
   }
 }
 
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
 @keyframes zoomIn {
   from {
     transform: scale(0);
@@ -62,12 +72,34 @@
   }
 }
 
-@keyframes stretchRight {
-  from {
-    transform: scaleX(0);
+@keyframes formFieldStretchRight {
+  0% {
+    border-radius: 100%;
+    transform: scaleX(0.06);
   }
 
-  to {
+  10% {
+    border-radius: 3.5rem;
+  }
+
+  100% {
+    border-radius: 3.5rem;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes btnStretchRight {
+  0% {
+    border-radius: 100%;
+    transform: scaleX(0.35);
+  }
+
+  50% {
+    border-radius: 3.5rem;
+  }
+
+  100% {
+    border-radius: 3.5rem;
     transform: scaleX(1);
   }
 }
@@ -166,7 +198,7 @@
 @keyframes story__btn--prev {
   from {
     opacity: 0;
-    transform: translateX(-24px) rotate(-90deg);
+    transform: translateX(-1.5rem) rotate(-90deg);
   }
 
   to {
@@ -178,7 +210,7 @@
 @keyframes story__btn--next {
   from {
     opacity: 0;
-    transform: translateX(24px) rotate(90deg);
+    transform: translateX(1.5rem) rotate(90deg);
   }
 
   to {
@@ -187,10 +219,9 @@
   }
 }
 
-
 @keyframes rollInRight {
   from {
-    transform: translateX(24px) rotate(90deg);
+    transform: translateX(1.5rem) rotate(90deg);
   }
 
   to {

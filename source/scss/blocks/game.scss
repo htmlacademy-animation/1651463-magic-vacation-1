@@ -124,14 +124,15 @@
 
 .screen--game {
   .form__field {
+    border-radius: 100%;
     opacity: 0;
-    transform: scaleX(0);
+    transform: scaleX(0.06);
     transform-origin: 100%;
   }
 }
 
 .screen--game.active {
   .form__field {
-    animation: stretchRight $duration-extra-long both, fadeIn 0.1s 0.1s both;
+    animation: fadeIn 0.2s both, formFieldStretchRight $duration-extra-long 0.1s both;
   }
 }

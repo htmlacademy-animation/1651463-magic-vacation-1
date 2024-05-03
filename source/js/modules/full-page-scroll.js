@@ -17,7 +17,7 @@ export default class FullPageScroll {
   }
 
   init() {
-    document.addEventListener(`wheel`, throttle(this.onScrollHandler, this.THROTTLE_TIMEOUT, {trailing: true}));
+    document.addEventListener(`wheel`, throttle(this.onScrollHandler, this.THROTTLE_TIMEOUT, { trailing: true }));
     window.addEventListener(`popstate`, this.onUrlHashChengedHandler);
 
     this.onUrlHashChanged();
@@ -58,8 +58,10 @@ export default class FullPageScroll {
       screen.classList.add(`screen--hidden`);
       screen.classList.remove(`active`);
     });
+
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
     this.pageSwitchHandler.resetScheme();
+
     setTimeout(() => {
       this.screenElements[this.activeScreen].classList.add(`active`);
       this.pageSwitchHandler.setColorScheme(this.screenElements[this.activeScreen].id);

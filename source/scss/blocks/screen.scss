@@ -473,7 +473,7 @@
       animation: textAppeared $duration-short 1.2s forwards;
 
       &::before {
-        animation: stretchRight $duration-medium 1s forwards, fadeIn 1ms 1.06s forwards;
+        animation: fadeIn 0.2s 1.06s forwards, btnStretchRight $duration-medium 1.06s forwards;
       }
     }
   }
