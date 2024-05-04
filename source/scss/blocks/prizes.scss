@@ -162,9 +162,6 @@
   }
 
   &--cases {
-    margin-left: 7rem;
-
-
     @media (min-width: $stop-scaling) {
       margin-left: 70px;
     }
@@ -372,7 +369,7 @@
   }
 
   .prizes__item--codes {
-    animation: fadeIn 0.5s ease 5s forwards;
+    animation: fadeIn 0.5s ease 6s forwards;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       animation-delay: 0.5s;

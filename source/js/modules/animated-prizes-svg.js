@@ -6,13 +6,18 @@ export default class AnimatedPrizesSvg {
   animate() {
     const journeysAnimate = this.elements[0].querySelector(`animate`);
     const casesAnimate = this.elements[1].querySelector(`animate`);
+    const codesAnimate = this.elements[2].querySelector(`animate`);
 
     journeysAnimate.beginElement();
 
     setTimeout(() => {
       casesAnimate.beginElement();
-      this.addActiveClass();
     }, 4100);
+
+    setTimeout(() => {
+      codesAnimate.beginElement();
+      this.addActiveClass();
+    }, 6000);
   }
 
   addActiveClass() {
