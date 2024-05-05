@@ -206,15 +206,16 @@
   display: block;
   color: transparent;
   overflow: hidden;
+  border-radius: 3.5rem;
 
   &::before {
     top: 0;
     left: unset;
     right: 0;
     opacity: 0;
-    transform: translate(0) scaleX(0.35);
+    transform: translateX(100%);
     transform-origin: 100%;
-    border-radius: 100%;
+    border-radius: 3.5rem;
   }
 
   @media (min-width: $stop-scaling) {
