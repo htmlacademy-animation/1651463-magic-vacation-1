@@ -72,6 +72,7 @@
     height: 100%;
     stroke-width: 0.2rem;
     stroke-linejoin: round;
+    overflow: visible;
   }
 }
 
@@ -217,6 +218,13 @@
 .result--trip,
 .result--prize {
   .result__title {
+    svg {
+      opacity: 0;
+      transform: scale(1.2);
+    }
+  }
+
+  .result__title {
     width: 57.3rem;
     height: 11.3rem;
 
@@ -311,7 +319,7 @@
 
 .result--negative {
   .result__title {
-    margin-top: 9.5rem;
+    margin-top: 4rem;
     width: 66.5rem;
     height: 11.3rem;
 
@@ -349,6 +357,12 @@
 .screen--result.screen--show {
   .result--trip,
   .result--prize {
+    .result__title {
+      svg {
+        animation: fadeIn 300ms ease-out  both, zoomOut 400ms ease-out  both;
+      }
+    }
+
     .form__button {
       animation: fadeIn $duration-long 0.3s both, textAppeared $duration-long 0.5s both;
     }

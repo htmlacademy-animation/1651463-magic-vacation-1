@@ -55,7 +55,6 @@ export default class PageSwitchHandler {
 
   setColorScheme(sectionId) {
     this.resetScheme();
-
     if (this.scriptRunSchema[sectionId]) {
       [...this.scriptRunSchema[sectionId]].forEach((funct) => {
         setTimeout(() => funct(), 100);

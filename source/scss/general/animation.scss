@@ -72,6 +72,16 @@
   }
 }
 
+@keyframes zoomOut {
+  from {
+    transform: scale(1.2);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
 @keyframes formFieldStretchRight {
   0% {
     border-radius: 100%;
