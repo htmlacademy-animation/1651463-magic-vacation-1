@@ -1,5 +1,6 @@
 import AccentTypographyBuild from "./accent-typography-build";
 import AnimatedPrizesSvg from "./animated-prizes-svg";
+import GameTimer from "./game-timer";
 
 export default class PageSwitchHandler {
   constructor() {
@@ -9,8 +10,8 @@ export default class PageSwitchHandler {
     const prizesTitle = new AccentTypographyBuild(`.prizes__title`, 500, `accent-typography--active`, `transform`);
     const rulesTitle = new AccentTypographyBuild(`.rules__title`, 500, `accent-typography--active`, `transform`);
     const gameTitle = new AccentTypographyBuild(`.game__title`, 500, `accent-typography--active`, `transform`);
-
     const prizesSvg = new AnimatedPrizesSvg(`.js-prizes-icon`);
+    const gameTimer = new GameTimer(`.game__counter`, 5);
 
     this.scriptRunSchema = {
       top: [
@@ -29,6 +30,7 @@ export default class PageSwitchHandler {
       ],
       game: [
         gameTitle.runAnimation.bind(gameTitle),
+        gameTimer.start.bind(gameTimer),
       ],
     };
 
@@ -49,6 +51,7 @@ export default class PageSwitchHandler {
       ],
       game: [
         gameTitle.destroyAnimation.bind(gameTitle),
+        gameTimer.reset.bind(gameTimer),
       ],
     };
   }
